@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const powerButton = document.querySelector('.power-button');
-
-
+      
     const isActive = localStorage.getItem('extensionActive') === 'true';
     updateButtonAppearance(powerButton, isActive);
 
@@ -29,7 +28,16 @@ document.addEventListener('DOMContentLoaded', function() {
 function updateButtonAppearance(button, isActive) {
     button.classList.toggle('active', isActive);
     button.style.backgroundColor = isActive ? '#3F72AF' : '#112D4E';
+
+    if (isActive) {
+        chrome.runtime.sendMessage({ action: "changeBadgeProperties", color: [0, 255, 0, 255], number: 2 });
+      } else {
+        chrome.runtime.sendMessage({ action: "changeBadgeProperties", color: [128, 128, 128, 255], number: '0' });
+      }
+
 }
+
+
 
 let observer; 
 let observerActive = false;
@@ -41,7 +49,6 @@ function startObserver() {
 
     function clickNextShortButton() {
         if (!observerActive) return; 
-    
         const xpath = '/html/body/ytd-app/div[1]/ytd-page-manager/ytd-shorts/div[4]/div[2]/ytd-button-renderer/yt-button-shape/button/yt-touch-feedback-shape/div/div[2]';
         const nextButton = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         
@@ -52,6 +59,8 @@ function startObserver() {
             console.log('Next Short button not found.');
         }
     }
+
+
     
 
 let progressValues = [];
