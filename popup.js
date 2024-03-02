@@ -120,10 +120,6 @@ function startObserver() {
             nextButton.click();
             
             updatePopupContent();
-            updatePopupContent();
-            updatePopupContent();
-            updatePopupContent();
-            updatePopupContent();
             console.clear();
             console.log('Next Short button clicked.');
             fetchData();
