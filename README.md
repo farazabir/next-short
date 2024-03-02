@@ -1,5 +1,5 @@
 # Next Short Chrome Extension
-
+![image](https://github.com/farazabir/next-short/assets/62275863/cadf1dde-060f-4e6e-8a24-473ee30f7059)
 ## Overview
 Next Short is a Chrome extension designed to enhance your YouTube Shorts viewing experience by automatically navigating to the next short video. It eliminates the need for manual interaction, providing a seamless and continuous viewing experience of YouTube Shorts.
 
